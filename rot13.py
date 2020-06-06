@@ -1,7 +1,11 @@
-
-print("********* ROT13 Implemetation *********")
+# import pyfiglet module
+import pyfiglet
+#Text in slant font
+out = pyfiglet.figlet_format("ROT13 Algorithm")
+print(out)
 print("1. Plain Text -> Cipher Text")
 print("2. Cipher Text -> Plain Text")
+
 val = int(input())
 
 if(val == 1):
