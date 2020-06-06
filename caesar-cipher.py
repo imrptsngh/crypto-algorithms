@@ -25,6 +25,29 @@ if (val == 1):
     shift = int(input('Shift : '))
     print ("Cipher Text : " + encrypt(text,shift))
 
+if(val == 2):
+    def decrypt(text):
+        LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+        for key in range(len(LETTERS)):
+            translated = ''
+            for symbol in text:
+                if symbol in LETTERS:
+                    num = LETTERS.find(symbol)
+                    num = num - key
+                    if num < 0:
+                        num = num + len(LETTERS)
+                    translated = translated + LETTERS[num]
+                else:
+                    translated = translated + symbol
+            print("Plain Text with key #%s:%s" %(key,translated))
+
+
+    text = input('Cipher Text : ')
+    print('Trying all possible combinations.....')
+    decrypt(text)
+    
+
+
    
 
 
