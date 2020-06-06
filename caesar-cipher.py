@@ -4,7 +4,9 @@ import pyfiglet
 out = pyfiglet.figlet_format("Caesar Cipher Algorithm")
 print(out)
 print("1. Plain Text -> Cipher Text")
-print("2. Cipher Text -> Plain Text")
+print("2. Cipher Text -> Plain Text (without KEY)")
+print("3. Cipher Text -> Plain Text (with KEY)")
+dataset = 'abcdefghijklmnopqrstuvwxyz'
 val = int(input())
 
 if (val == 1):
@@ -27,7 +29,7 @@ if (val == 1):
 
 if(val == 2):
     def decrypt(text):
-        LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+        LETTERS = 'abcdefghijklmnopqrstuvwxyz'
         for key in range(len(LETTERS)):
             translated = ''
             for symbol in text:
@@ -45,6 +47,23 @@ if(val == 2):
     text = input('Cipher Text : ')
     print('Trying all possible combinations.....')
     decrypt(text)
+
+if(val == 3):
+    def decrypt_withkey(text,s):
+        result = ''
+        for l in text:
+            try:
+                i = (dataset.index(l) - s) % 26
+                result += dataset[i]
+            except ValueError:
+                result += l
+
+        return result
+    
+    text = input('Cipher Text : ')
+    s = int(input('Shift : '))
+    print("Plain Text: " + decrypt_withkey(text,s))
+
     
 
 
